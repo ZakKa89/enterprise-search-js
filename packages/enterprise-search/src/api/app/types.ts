@@ -110,12 +110,12 @@ export interface PutAdaptiveRelevanceSuggestionsResponse {
     status?: 'pending' | 'applied' | 'automated' | 'rejected' | 'disabled'
     errors: string[]
   }
-  | {
-    query?: string
-    status?: 'pending' | 'applied' | 'automated' | 'rejected' | 'disabled'
-    updated_at?: string
-    created_at?: string
-  }>
+    | {
+      query?: string
+      status?: 'pending' | 'applied' | 'automated' | 'rejected' | 'disabled'
+      updated_at?: string
+      created_at?: string
+    }>
 }
 
 export interface GetAdaptiveRelevanceSuggestionsRequest {
@@ -173,11 +173,11 @@ export interface GetTopClicksAnalyticsRequest {
       all: Array<| {
         tag: string | string[]
       }
-      | {
-        date: {
-          [k: string]: unknown
-        }
-      }>
+        | {
+          date: {
+            [k: string]: unknown
+          }
+        }>
     }
     page?: {
       size: number
@@ -223,17 +223,17 @@ export interface GetCountAnalyticsRequest {
       all: Array<| {
         query: string
       }
-      | {
-        document_id: string
-      }
-      | {
-        tag: string | string[]
-      }
-      | {
-        date: {
-          [k: string]: unknown
+        | {
+          document_id: string
         }
-      }>
+        | {
+          tag: string | string[]
+        }
+        | {
+          date: {
+            [k: string]: unknown
+          }
+        }>
     }
     interval?: string
   }
@@ -273,17 +273,17 @@ export interface GetTopQueriesAnalyticsRequest {
       all: Array<| {
         clicks: boolean
       }
-      | {
-        results: boolean
-      }
-      | {
-        tag: string | string[]
-      }
-      | {
-        date: {
-          [k: string]: unknown
+        | {
+          results: boolean
         }
-      }>
+        | {
+          tag: string | string[]
+        }
+        | {
+          date: {
+            [k: string]: unknown
+          }
+        }>
     }
     page?: {
       size: number
@@ -474,11 +474,11 @@ export type GetCrawlerCrawlRequestResponse = {
       {
         type: 'object'
         properties: {
-          max_crawl_depth: {type: 'integer'}
-          sitemap_discovery_disabled: {type: 'boolean'}
-          domain_allowlist: {type: 'array', items: {type: 'string'}}
-          seed_urls: {type: 'array', items: {type: 'string'}}
-          sitemap_urls: {type: 'array', items: {type: 'string'}}
+          max_crawl_depth: { type: 'integer' }
+          sitemap_discovery_disabled: { type: 'boolean' }
+          domain_allowlist: { type: 'array', items: { type: 'string' } }
+          seed_urls: { type: 'array', items: { type: 'string' } }
+          sitemap_urls: { type: 'array', items: { type: 'string' } }
         }
         additionalProperties: false
       }
@@ -521,11 +521,11 @@ export type GetCrawlerActiveCrawlRequestResponse = {
       {
         type: 'object'
         properties: {
-          max_crawl_depth: {type: 'integer'}
-          sitemap_discovery_disabled: {type: 'boolean'}
-          domain_allowlist: {type: 'array', items: {type: 'string'}}
-          seed_urls: {type: 'array', items: {type: 'string'}}
-          sitemap_urls: {type: 'array', items: {type: 'string'}}
+          max_crawl_depth: { type: 'integer' }
+          sitemap_discovery_disabled: { type: 'boolean' }
+          domain_allowlist: { type: 'array', items: { type: 'string' } }
+          seed_urls: { type: 'array', items: { type: 'string' } }
+          sitemap_urls: { type: 'array', items: { type: 'string' } }
         }
         additionalProperties: false
       }
@@ -1092,7 +1092,7 @@ export interface DeleteCrawlerEntryPointResponse {
   deleted: boolean
 }
 
-export interface GetCrawlerMetricsRequest {}
+export interface GetCrawlerMetricsRequest { }
 
 export interface GetCrawlerMetricsResponse {
   global: {
@@ -1534,7 +1534,7 @@ export interface GetCrawlerDomainValidationResultResponse {
   }>
 }
 
-export interface GetCrawlerUserAgentRequest {}
+export interface GetCrawlerUserAgentRequest { }
 
 export interface GetCrawlerUserAgentResponse {
   user_agent: string
@@ -2196,7 +2196,7 @@ export interface SearchRequest {
     analytics?: {}
     boost?: {}
     facets?: {}
-    filters?: {}
+    filters?: { ["any" | "all"]: { [key: string]: string } }
     group?: {}
     page?: {
       current?: number
